@@ -1,0 +1,144 @@
+@import 'tailwindcss';
+
+@theme {
+  --font-sans:
+    'Plus Jakarta Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
+
+  /* Warm cream surfaces */
+  --color-cream-50: #fdfbf7;
+  --color-cream-100: #f9f4ec;
+  --color-cream-200: #f2eadd;
+  --color-cream-300: #e9decb;
+
+  /* Warm neutral ink */
+  --color-ink-900: #1e2a24;
+  --color-ink-800: #2c3a33;
+  --color-ink-700: #3d4a43;
+  --color-ink-600: #55625b;
+  --color-ink-500: #6b7871;
+  --color-ink-400: #8a968f;
+  --color-ink-300: #aeb8b1;
+  --color-ink-200: #d3dad4;
+
+  /* Fresh green — primary accent */
+  --color-brand-50: #edf9f1;
+  --color-brand-100: #d6f0e0;
+  --color-brand-200: #aee2c4;
+  --color-brand-300: #7ed0a2;
+  --color-brand-400: #4dbb7e;
+  --color-brand-500: #2ba463;
+  --color-brand-600: #1f8a51;
+  --color-brand-700: #1a6e42;
+  --color-brand-800: #175a37;
+
+  /* Protein — blue */
+  --color-protein-50: #eaf2fe;
+  --color-protein-100: #d3e4fd;
+  --color-protein-200: #a9cbfb;
+  --color-protein-500: #3b82f6;
+  --color-protein-600: #2563eb;
+
+  /* Carbohydrates — warm orange */
+  --color-carbs-50: #fef3e6;
+  --color-carbs-100: #fde4c7;
+  --color-carbs-200: #fbcb94;
+  --color-carbs-500: #f59e0b;
+  --color-carbs-600: #d97706;
+
+  /* Fat — soft purple */
+  --color-fat-50: #f2edfe;
+  --color-fat-100: #e6dbfd;
+  --color-fat-200: #d0bcfb;
+  --color-fat-500: #a78bfa;
+  --color-fat-600: #8b5cf6;
+
+  /* Sunny warm accent for insight */
+  --color-sunny-50: #fff8e5;
+  --color-sunny-100: #ffefc2;
+  --color-sunny-200: #ffe399;
+  --color-sunny-400: #f5c24b;
+  --color-sunny-500: #e0a81f;
+
+  --shadow-soft: 0 1px 2px rgba(30, 42, 36, 0.04), 0 8px 24px -12px rgba(30, 42, 36, 0.12);
+  --shadow-card: 0 1px 3px rgba(30, 42, 36, 0.05), 0 14px 34px -18px rgba(30, 42, 36, 0.2);
+  --shadow-lift: 0 2px 6px rgba(30, 42, 36, 0.06), 0 24px 44px -22px rgba(30, 42, 36, 0.28);
+
+  --animate-fade-in: fade-in 0.35s ease-out both;
+  --animate-rise: rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-pop: pop 0.35s cubic-bezier(0.22, 1, 0.36, 1) both;
+  --animate-shimmer: shimmer 1.6s linear infinite;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-cream-50 text-ink-900 font-sans antialiased;
+    background-image:
+      radial-gradient(60rem 40rem at 110% -10%, rgba(43, 164, 99, 0.07), transparent 60%),
+      radial-gradient(50rem 34rem at -10% 8%, rgba(245, 158, 11, 0.06), transparent 55%);
+    background-attachment: fixed;
+  }
+
+  :focus-visible {
+    @apply outline-brand-500 outline-2 outline-offset-2;
+  }
+}
+
+@utility scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-cream-300) transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
